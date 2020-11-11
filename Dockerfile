@@ -1,12 +1,10 @@
-FROM python:3.6
-#Copiando os arquivos do projeto para o diretorio usr/src/app 
-COPY . /usr/src/app
-#Definindo o diretorio onde o CMD será executado e copiando o arquivo de requerimentos
-WORKDIR /usr/src/app
-COPY requirements.txt ./
-# Instalando os requerimentos com o PIP
-RUN pip3 install --no-cache-dir -r requirements.txt
-# Expondo a porta da APP
-EXPOSE 8000
-# Executando o comando para subir a aplicacao
-CMD ["gunicorn", "to_do.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+# define a imagem base
+FROM nginx:latest 
+# define o mantenedor da imagem
+LABEL maintainer="Clemente Machado"
+# Atualiza a imagem com os pacotes
+# Instala o NGINX para testar
+# Expoe a porta 80
+EXPOSE 80
+# Comando para iniciar o NGINX no Container
+CMD ["nginx", "-g", "daemon off;"]
