@@ -1,5 +1,5 @@
 # define a imagem base
-FROM nginx:latest 
+FROM nginx:1-alpine
 # define o mantenedor da imagem
 LABEL maintainer="Clemente Machado"
 # Atualiza a imagem com os pacotes
